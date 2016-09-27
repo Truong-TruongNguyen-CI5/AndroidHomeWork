@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         imV7.setImageResource(R.drawable.bitmap7);
         imV8.setImageResource(R.drawable.bitmap8);
         imV9.setImageResource(R.drawable.bitmap1);
-        imV10.setImageResource(R.drawable.bitmap10);
+        imV10.setImageResource(R.drawable.bitmap4);
         imV11.setImageResource(R.drawable.bitmap11);
         imAvatar.setImageResource(R.drawable.oval_avatar);
     }

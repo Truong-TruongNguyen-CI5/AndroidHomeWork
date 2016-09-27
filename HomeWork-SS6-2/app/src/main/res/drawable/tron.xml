@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Set màu nền-->
+    <solid
+        android:color="#918888" >
+    </solid>
+
+    <!-- đặt thuộc tính màu và độ rộng của đường viền -->
+    <size
+        android:width="@dimen/activity_vertical_margin"
+        android:height="@dimen/activity_horizontal_margin"
+        ></size>
+    <!-- các thuộc tính căn chỉnh-->
+    <!-- và đây là bán kính đường tròn ở 4 góc -->
+    <corners
+        android:radius="50dp" >
+    </corners>
+
+</shape>
+
+
+
