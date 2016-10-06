@@ -1,0 +1,102 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.AFragment"
+    android:id="@+id/frag_a">
+    <RelativeLayout
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:src="@drawable/a"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.4"
+                android:id="@+id/imageView" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:orientation="vertical"
+                android:background="#3b3737">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:text="Synth polaroid bitters chill
+wave pickled. Vegan disrupt!"
+                        android:paddingTop="20sp"
+                        android:paddingLeft="10sp"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:paddingLeft="10sp"
+                        android:text="19 Jul"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:id="@+id/textView2" />
+                </RelativeLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+
+                <TextView
+                    android:textSize="15sp"
+                    android:padding="10sp"
+                    android:text="It was a humorously perilous business for both of us. For, before we proceed further, it must be said that the monkey-rope was fast at both ends; fast to Queequeg's broad canvas belt, and fast to my narrow leather one. So that for better or for worse, we two, for the time, were wedded; and should poor Queequeg sink to rise no more, then both usage and honour demanded, that instead of cutting the cord, it should drag me down in his wake. So, then, an elongated Siamese ligature united us. Queequeg was my own inseparable twin brother; nor could I any way get rid of the dangerous liabilities which the hempen bond entailed."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/textView3" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:scaleType="center"
+            android:src="@drawable/back3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/im_back"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</ScrollView>
