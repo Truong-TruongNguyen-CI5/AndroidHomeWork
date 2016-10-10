@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        this.setTitle("Home");
+        getSupportActionBar().setTitle("Home");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         setShowActionBar(true);
         setDefaultToggle();
@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-        System.out.println("BAckkkk");
     }
 
     @Override
@@ -110,13 +109,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_gallery) {
-            setTitle("Article");
             openFragment( new AFragment(), true);
         } else if (id == R.id.nav_slideshow) {
-            setTitle("Payment");
             openFragment(new BFragment(), true);
         } else if (id == R.id.nav_manage) {
-            setTitle("Settings");
             openFragment(new CFragment(), true);
         }
 
@@ -141,5 +137,8 @@ public class MainActivity extends AppCompatActivity
     public void showSendMenu(boolean visible){
         this.menuSendVisible = visible;
         this.invalidateOptionsMenu();
+    }
+    public void setTitleActionBar(String title){
+         getSupportActionBar().setTitle(title);
     }
 }

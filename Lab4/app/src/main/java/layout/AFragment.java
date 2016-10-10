@@ -4,6 +4,7 @@ package layout;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelUuid;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +21,11 @@ import butterknife.BindView;
  */
 public class AFragment extends Fragment {
     ImageView imBack;
-
     ImageView imShare;
 
     public AFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,25 +33,14 @@ public class AFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_a, container, false);
         imBack = (ImageView) view.findViewById(R.id.im_back);
         imShare = (ImageView) view.findViewById(R.id.im_share) ;
-        setupUI();
         addListeners();
         return view;
     }
-
-    private void setupUI() {
-
-    }
-
     @Override
     public void onStart() {
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.setShowActionBar(false);
         super.onStart();
-    }
-
-    private void setShowActionBar(boolean visible) {
-        MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.setShowActionBar(visible);
     }
 
     private void addListeners() {
@@ -62,7 +49,6 @@ public class AFragment extends Fragment {
             public void onClick(View v) {
                 MainActivity mainActivity = (MainActivity) getActivity();
                 mainActivity.onBackPressed();
-
             }
         });
         imShare.setOnClickListener(new View.OnClickListener() {
@@ -75,5 +61,4 @@ public class AFragment extends Fragment {
             }
         });
     }
-
 }

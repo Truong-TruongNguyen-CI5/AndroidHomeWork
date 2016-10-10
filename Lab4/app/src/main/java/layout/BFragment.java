@@ -3,19 +3,14 @@ package layout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.example.nguyen.lab4.MainActivity;
 import com.example.nguyen.lab4.R;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -26,7 +21,7 @@ public class BFragment extends Fragment {
 //    ImageView imBack2;
 //    @BindView(R.id.im_send)
 //    ImageView imSend;
-
+    private MainActivity mainActivity ;
     public BFragment() {
         // Required empty public constructor
     }
@@ -44,8 +39,8 @@ public class BFragment extends Fragment {
 
     @Override
     public void onStart() {
-        getActivity().setTitle("Pay");
-        final MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity = (MainActivity) getActivity();
+        mainActivity.setTitleActionBar("Pay");
         ActionBarDrawerToggle toggle = mainActivity.getToggle();
         toggle.setDrawerIndicatorEnabled(false);// Ko hien thi image mac dinh
         toggle.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_white_24px);
@@ -57,12 +52,6 @@ public class BFragment extends Fragment {
         });
         mainActivity.showSendMenu(true);
         super.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        getActivity().setTitle("Pay");
-        super.onResume();
     }
     //    private void addListeners() {
 //        imBack2.setOnClickListener(new View.OnClickListener() {
