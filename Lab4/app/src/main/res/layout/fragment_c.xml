@@ -1,0 +1,154 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:padding="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="0dp">
+        <TextView
+            android:id="@+id/tv_swit"
+            android:textSize="15sp"
+            android:text="Switches"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:text="Flash Light"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/tv_swit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_Flash" />
+
+
+        <TextView
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:text="WIFI"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/tv_Flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_Wifi" />
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_Wifi"
+            android:layout_marginBottom="-3dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/switch3" />
+        <Switch
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_Flash"
+            android:layout_marginBottom="-3dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/switch2" />
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/tv_Wifi"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/bt_title"
+            android:textSize="15sp"
+            android:text="Radio Buttons"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/tv_Wifi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:checked="true"
+            android:id="@+id/bt_1"
+            android:textSize="20sp"
+            android:layout_marginTop="30sp"
+            android:layout_below="@id/bt_title"
+            android:text="if this is turn on"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/bt_2"
+            android:textSize="20sp"
+            android:layout_marginTop="20sp"
+            android:layout_below="@id/bt_1"
+            android:text="This one must be turned off"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/bt_2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/tv_vl"
+            android:textSize="15sp"
+            android:text="Volume Slider"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/bt_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:id="@+id/tv_if"
+            android:textSize="25sp"
+            android:text="if this is turn on"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/tv_vl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:layout_marginTop="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tv_if"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/seekBar"
+            android:progress="70"/>
+
+    </RelativeLayout>
+
+    <!--<RelativeLayout-->
+
+        <!--android:background="#29B6F6"-->
+        <!--android:id="@+id/rl_head"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp">-->
+        <!--<ImageView-->
+            <!--android:src="@drawable/ic_keyboard_backspace_black_24px"-->
+            <!--android:id="@+id/im_back3"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp" />-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Settings"-->
+            <!--android:textSize="25dp"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:layout_marginLeft="80dp"-->
+            <!--android:layout_centerVertical="true"/>-->
+        <!--<ImageView-->
+            <!--android:scaleType="center"-->
+            <!--android:src="@drawable/send"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentRight="true"/>-->
+    <!--</RelativeLayout>-->
+
+</FrameLayout>
