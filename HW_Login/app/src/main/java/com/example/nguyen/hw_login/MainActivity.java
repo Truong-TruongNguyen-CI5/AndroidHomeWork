@@ -1,8 +1,10 @@
 package com.example.nguyen.hw_login;
 
-import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +13,11 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.io.IOException;
+import org.json.JSONObject;
 
-import butterknife.BindView;
+import java.io.IOException;
+import java.util.Map;
+
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -22,15 +26,19 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import retrofit2.GsonConverterFactory;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.toString() ;
 
-    JSonModels jSonModels;
+    JSonModelsRespone jSonModelsRespone;
     EditText edtUsername;
     EditText edtPassword;
     Button btLogin;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +50,62 @@ public class MainActivity extends AppCompatActivity {
         addListeners();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
+    private void login() {
+        Retrofit retrofit = new Retrofit
+                .Builder()
+                .baseUrl("https://a5-tumblelog.herokuapp.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Service service = retrofit.create(Service.class);
+
+        // Create Models - request
+        JSONModelRequest JSONModelRequest = new JSONModelRequest(edtUsername.getText().toString(),edtPassword.getText().toString());
+
+        final String jsonBody = (new Gson().toJson(JSONModelRequest));
+
+        final RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),jsonBody);
+
+        retrofit2.Call<JSonModelsRespone> response = service.login("login", requestBody);
+
+        response.enqueue(new retrofit2.Callback<JSonModelsRespone>() {
+            @Override
+            public void onResponse(retrofit2.Call<JSonModelsRespone> call, retrofit2.Response<JSonModelsRespone> response) {
+                final JSonModelsRespone responeResult = response.body();
+                //Log.d(TAG, String.format("onRespone: %s", response.body().toString()));
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (responeResult.getCode().toString().equals("1")) {
+                            Log.d(TAG, "OK");
+                            Toast.makeText(MainActivity.this, "Login Passed", Toast.LENGTH_LONG).show();
+                        }
+                        if (responeResult.getCode().toString().equals("0")) {
+                            Log.d(TAG, "FAILED");
+                            Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+            }
+
+            @Override
+            public void onFailure(retrofit2.Call<JSonModelsRespone> call, Throwable t) {
+
+            }
+        });
+
+    }
+
     private void addListeners() {
         btLogin.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
-                sendPOSTRequest();
+                //sendPOSTRequest();
+                login();
             }
         });
     }
@@ -55,9 +114,9 @@ public class MainActivity extends AppCompatActivity {
 
         OkHttpClient client = new OkHttpClient();
 
-        PostJSONModel postJSONModel = new PostJSONModel(edtUsername.getText().toString(),edtPassword.getText().toString());
+        JSONModelRequest JSONModelRequest = new JSONModelRequest(edtUsername.getText().toString(),edtPassword.getText().toString());
 
-        final String jsonBody = (new Gson().toJson(postJSONModel));
+        final String jsonBody = (new Gson().toJson(JSONModelRequest));
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),jsonBody);
 
@@ -72,15 +131,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body = response.body().string();
-                jSonModels = new Gson().fromJson(body, JSonModels.class);
+                jSonModelsRespone = new Gson().fromJson(body, JSonModelsRespone.class);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (jSonModels.getCode().toString().equals("1")) {
+                        if (jSonModelsRespone.getCode().toString().equals("1")) {
                             Log.d(TAG, "OK");
                             Toast.makeText(MainActivity.this, "Login Passed", Toast.LENGTH_LONG).show();
                         }
-                        if (jSonModels.getCode().toString().equals("0")) {
+                        if (jSonModelsRespone.getCode().toString().equals("0")) {
                             Log.d(TAG, "FAILED");
                             Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                         }
