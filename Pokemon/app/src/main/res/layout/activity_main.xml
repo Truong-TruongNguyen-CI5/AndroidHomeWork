@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nguyen.pokemon.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/rl_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:background="#9d2742"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <ImageView
+                android:clickable="true"
+                android:id="@+id/im_setting"
+                android:padding="10dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_setting_burned"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+            <TextView
+                android:typeface="monospace"
+                android:id="@+id/tv_highscore"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="40sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HIGH SCORE"/>
+            <TextView
+                android:textColor="#ffffff"
+                android:layout_alignTop="@+id/tv_highscore"
+                android:layout_marginTop="-100dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="70sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+            <View
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="10px"
+                android:background="#000000"
+                android:id="@+id/view" />
+
+            <TextView
+                android:id="@+id/tv_appname"
+                android:textColor="#000"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quiz' Em All"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+            <TextView
+                android:textColor="#000"
+                android:layout_marginBottom="10dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Copyright Techkids 2016"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+
+        android:id="@+id/im_play"
+        android:scaleType="centerInside"
+        android:src="@drawable/button_play"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+       />
+</RelativeLayout>
