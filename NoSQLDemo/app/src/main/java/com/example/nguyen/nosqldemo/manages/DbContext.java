@@ -79,7 +79,7 @@ public class DbContext {
                 .findAll();
         return  persons;
     }
-    public Person findPersonByName(String name){
+        public Person findPersonByName(String name){
         Realm realm = Realm.getDefaultInstance();
         //3 Query  - laza load
         Person person = realm

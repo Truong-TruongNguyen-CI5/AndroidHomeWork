@@ -46,6 +46,7 @@ public class LoginFragment extends Fragment {
         //Get string form username
         String username = edtUsername.getText().toString();
         // Save data to SharePreferences
+
         Preferences.getInstance().putUsername(username);
         // Transit to Quote Fragment
         EventBus.getDefault().post(new FragmentEvent(
